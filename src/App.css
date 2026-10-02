@@ -1,0 +1,496 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff5f8;
+    color: #4a3b40;
+}
+
+
+/* =========================
+   Container principal
+   ========================= */
+
+.app {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+
+/* =========================
+   Título
+   ========================= */
+
+.titulo {
+    margin-bottom: 30px;
+    color: #6b4b57;
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+
+/* =========================
+   Campo de busca
+   ========================= */
+
+.campo-busca {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 25px;
+
+    border: 1px solid #e8bfcf;
+    border-radius: 10px;
+
+    background-color: #fffafb;
+    color: #4a3b40;
+
+    font-size: 1rem;
+
+    outline: none;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo-busca::placeholder {
+    color: #b99da8;
+}
+
+.campo-busca:focus {
+    border-color: #d99ab3;
+    box-shadow: 0 0 0 3px rgba(217, 154, 179, 0.2);
+}
+
+
+/* =========================
+   Informações
+   ========================= */
+
+.informacao {
+    margin: 10px 0;
+    color: #8b707b;
+}
+
+.carregando {
+    text-align: center;
+    color: #7da68a;
+    font-size: 1.1rem;
+}
+
+.erro {
+    padding: 15px;
+    border-radius: 8px;
+
+    background-color: #fff0f0;
+    border: 1px solid #e7aaaa;
+
+    color: #a85c67;
+}
+
+
+/* =========================
+   Lista de usuários
+   ========================= */
+
+.lista-usuarios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 20px;
+
+    padding: 0;
+    margin: 25px 0 0;
+
+    list-style: none;
+}
+
+
+/* =========================
+   Card do usuário
+   ========================= */
+
+.card-usuario {
+    padding: 22px;
+
+    background: #fffafb;
+
+    border: 1px solid #efd1dc;
+    border-radius: 14px;
+
+    box-shadow: 0 8px 20px rgba(130, 87, 103, 0.12);
+
+    transition:
+        transform 0.2s,
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.card-usuario:hover {
+    transform: translateY(-5px);
+
+    border-color: #c8dfcf;
+
+    box-shadow: 0 12px 30px rgba(130, 87, 103, 0.18);
+}
+
+
+/* =========================
+   Avatar
+   ========================= */
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 55px;
+
+    margin-bottom: 15px;
+
+    border-radius: 50%;
+
+    background: #d9b5c3;
+
+    color: #ffffff;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* =========================
+   Informações do usuário
+   ========================= */
+
+.nome-usuario {
+    margin: 0 0 8px;
+
+    color: #604652;
+
+    font-size: 1.2rem;
+}
+
+.username {
+    margin: 0 0 15px;
+
+    color: #86a991;
+
+    font-size: 0.9rem;
+}
+
+.email {
+    margin: 0;
+
+    color: #806b74;
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================
+   Botões
+   ========================= */
+
+.card-usuario button {
+    margin-top: 18px;
+    margin-right: 8px;
+
+    padding: 10px 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}
+
+.card-usuario button:first-of-type {
+    background-color: #d9b5c3;
+    color: #ffffff;
+}
+
+.card-usuario button:first-of-type:hover {
+    background-color: #c99aaa;
+    transform: translateY(-2px);
+}
+
+.card-usuario button:last-of-type {
+    background-color: #b8d6c0;
+    color: #496452;
+}
+
+.card-usuario button:last-of-type:hover {
+    background-color: #a6c9af;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   Botão novo usuário
+   ========================= */
+
+.botao-novo-usuario {
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 9px;
+
+    background-color: #b8d6c0;
+    color: #496452;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}
+
+.botao-novo-usuario:hover {
+    background-color: #a6c9af;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   Mensagem sem resultados
+   ========================= */
+
+.sem-resultados {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border: 1px dashed #d9b5c3;
+    border-radius: 10px;
+
+    color: #927783;
+}
+
+
+/* =========================
+   Modal
+   ========================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(92, 67, 76, 0.45);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+}
+
+.modal {
+    position: relative;
+
+    width: 90%;
+    max-width: 600px;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background-color: #fffafb;
+    border-radius: 12px;
+
+    padding: 30px;
+
+    box-shadow: 0 10px 30px rgba(92, 67, 76, 0.25);
+}
+
+.modal-fechar {
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    border: none;
+    background: none;
+
+    color: #806b74;
+
+    font-size: 30px;
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+
+/* =========================
+   Formulário
+   ========================= */
+
+.formulario-usuario {
+    display: grid;
+    gap: 16px;
+}
+
+.formulario-usuario_cabecalho p {
+    margin: 0 0 7px;
+
+    color: #c7839d;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+}
+
+.formulario-usuario_cabecalho h2 {
+    margin: 0;
+
+    color: #604652;
+}
+
+.campo-formulario {
+    display: grid;
+    gap: 7px;
+}
+
+.campo-formulario label {
+    color: #705661;
+
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.campo-formulario input {
+    width: 100%;
+    min-height: 46px;
+
+    padding: 11px;
+
+    border: 1px solid #e3b8c8;
+    border-radius: 7px;
+
+    background-color: #fffafb;
+
+    color: #4a3b40;
+
+    font: inherit;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s,
+        background-color 0.2s;
+}
+
+.campo-formulario input::placeholder {
+    color: #b99da8;
+}
+
+.campo-formulario input:hover {
+    border-color: #c99aaa;
+}
+
+.campo-formulario input:focus {
+    border-color: #9fbea7;
+    background-color: #f4fbf6;
+
+    box-shadow: 0 0 0 3px rgba(159, 190, 167, 0.2);
+
+    outline: none;
+}
+
+.botao-cadastrar {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #b8d6c0;
+    color: #496452;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.botao-cadastrar:hover {
+    background-color: #a6c9af;
+}
+
+
+/* =========================
+   Mensagem de sucesso
+   ========================= */
+
+.success-snackbar {
+    position: fixed;
+
+    z-index: 1200;
+
+    top: 24px;
+    right: 24px;
+
+    width: min(420px, calc(100vw - 32px));
+
+    margin: 0;
+
+    padding: 16px 20px;
+
+    border: 1px solid #b8d6c0;
+    border-left: 4px solid #8eb69a;
+
+    border-radius: 10px;
+
+    background: #f0faf3;
+    color: #52705b;
+
+    box-shadow: 0 16px 40px rgba(92, 67, 76, 0.2);
+
+    animation: snackbar-entrance 220ms ease-out both;
+}
+
+@keyframes snackbar-entrance {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+/* =========================
+   Responsividade
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .app {
+        padding: 25px 15px;
+    }
+
+    .titulo {
+        font-size: 1.7rem;
+    }
+
+    .lista-usuarios {
+        grid-template-columns: 1fr;
+    }
+}
